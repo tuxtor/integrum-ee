@@ -3,7 +3,6 @@ package com.nabenik.controller
 import com.nabenik.model.AdmPhrase
 import com.nabenik.repository.AdmPhraseRepository
 import org.slf4j.Logger
-import javax.enterprise.context.RequestScoped
 import javax.inject.Inject
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
