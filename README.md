@@ -2,7 +2,7 @@
 
 Currently integrum EE is a proof of concept of a Java EE project with support for Kotlin and Java as languages
 
-As 2019-04-16 it has been tested with the following enterprise APIs
+As 2019-04-22 it has been tested with the following enterprise APIs
 
 - JPA
 - EJB

@@ -1,2 +1,2 @@
 FROM payara/micro
-COPY ./target/integrum-ee.war ${DEPLOYMENT_DIR}
+COPY target/integrum-ee.war $DEPLOY_DIR

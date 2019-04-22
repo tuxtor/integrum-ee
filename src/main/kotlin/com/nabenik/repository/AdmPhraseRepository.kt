@@ -38,4 +38,5 @@ class AdmPhraseRepository @Inject constructor() {
                 .setParameter("phrase", "%$phrase%")
                 .resultList
     }
+
 }
