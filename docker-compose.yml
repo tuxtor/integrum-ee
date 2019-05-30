@@ -9,7 +9,7 @@ services:
     networks:
       - webnet
   web:
-    image: integrum-ee:1
+    image: integrum-ee
     restart: always
     environment:
       JDBC_URL: 'jdbc:postgresql://db:5432/integrum'
