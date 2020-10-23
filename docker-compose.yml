@@ -9,7 +9,7 @@ services:
     networks:
       - webnet
   web:
-    image: tuxtor/integrum-ee
+    image: tuxtor/integrum-ee:latest
     restart: always
     environment:
       JDBC_URL: 'jdbc:postgresql://db:5432/integrum'
@@ -27,7 +27,7 @@ services:
     depends_on:
       - web
     ports:
-      - "4000:4000"
+      - "4001:4001"
     networks:
       - webnet
 networks:

@@ -10,19 +10,21 @@
         <maven.compiler.target>11</maven.compiler.target>
         <kotlin.version>1.4.0</kotlin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <payaraVersion></payaraVersion>
+        <version.payara>5.201</version.payara>
+        <version.jakartaee>8.0.0</version.jakartaee>
+        <version.microprofile>3.2</version.microprofile>
     </properties>
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>8.0.0</version>
+            <version>${version.jakartaee}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>3.2</version>
+            <version>${version.microprofile}</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
@@ -71,7 +73,7 @@
         <dependency>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-embedded-web</artifactId>
-            <version>5.183</version>
+            <version>${version.payara}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -95,6 +97,36 @@
     <build>
         <finalName>integrum-ee</finalName>
         <plugins>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>1.0.6</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <payaraVersion>${version.payara}</payaraVersion>
+                    <deployWar>false</deployWar>
+                    <commandLineOptions>
+                        <option>
+                            <key>--autoBindHttp</key>
+                        </option>
+                        <option>
+                            <key>--nocluster</key>
+                        </option>
+                        <option>
+                            <key>--deploy</key>
+                            <value>${project.build.directory}/${project.build.finalName}</value>
+                        </option>
+                    </commandLineOptions>
+                    <contextRoot>/</contextRoot>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
