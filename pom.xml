@@ -6,22 +6,23 @@
     <version>2.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <kotlin.version>1.3.30</kotlin.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <kotlin.version>1.4.0</kotlin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+        <payaraVersion></payaraVersion>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>8.0</version>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>2.1</version>
+            <version>3.2</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
@@ -37,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
         <dependency>
@@ -228,7 +229,7 @@
                 <configuration>
                     <images>
                         <image>
-                            <name>iad.ocir.io/tuxtor/microprofile/integrum-ee</name>
+                            <name>tuxtor/integrum-ee</name>
                             <build>
                                 <dockerFile>${project.basedir}/Dockerfile</dockerFile >
                             </build>

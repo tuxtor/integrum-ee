@@ -16,6 +16,10 @@ class HelloController{
     val ip = InetAddress.getLocalHost()
 
     @GET
-    fun doHello() = "There is no place like $javaHome, running at $ip"
+    fun doHello() = "No hay lugar como  $javaHome, ejecutandose en la siguiente direccion $ip"
 
+
+    @GET
+    @Path("/meso")
+    fun doHolaXela() = "Hola amigos de la Meso, me gusta C# :V"
 }

@@ -22,20 +22,21 @@ class AdmPhraseController{
 
     @GET
     fun findAll(@QueryParam("author") @DefaultValue("%") author: String,
-                @QueryParam("phrase") @DefaultValue("%") phrase: String) = admPhraseRepository.listAll(author, phrase)
+                @QueryParam("phrase") @DefaultValue("%") phrase: String)
+            = admPhraseRepository.listAll(author, phrase)
 
     @GET
     @Path("/{id:[0-9][0-9]*}")
     fun findById(@PathParam("id") id:Long) = admPhraseRepository.findById(id)
 
-    @PUT
+    @POST
     fun create(phrase: AdmPhrase): Response {
         admPhraseRepository.create(phrase)
         return Response.created(UriBuilder.fromResource(this::class.java)
                 .path(phrase.phraseId.toString()).build()).build()
     }
 
-    @POST
+    @PUT
     @Path("/{id:[0-9][0-9]*}")
     fun update(@PathParam("id") id: Long?, phrase: AdmPhrase): Response {
         if(id != phrase.phraseId) return Response.status(Response.Status.NOT_FOUND).build()
