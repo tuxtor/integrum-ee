@@ -8,7 +8,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <kotlin.version>1.4.0</kotlin.version>
+        <kotlin.version>1.6.0</kotlin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <version.payara>5.201</version.payara>
         <version.jakartaee>8.0.0</version.jakartaee>
